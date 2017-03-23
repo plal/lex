@@ -42,34 +42,34 @@ comm			= {multiLineComm}|{lineComm}
  * REGRAS LEXICAS:
  */
 //palavras reservadas
-boolean			{ System.out.println("Token BOOLEAN"); }
-class			{ System.out.println("Token CLASS"); }
-public			{ System.out.println("Token PUBLIC"); }
-extends			{ System.out.println("Token EXTENDS"); }
-static			{ System.out.println("Token STATIC"); }
-void			{ System.out.println("Token VOID"); }
-main			{ System.out.println("Token MAIN"); }
-String			{ System.out.println("Token STRING"); }
-int				{ System.out.println("Token INT"); }
-while			{ System.out.println("Token WHILE"); }
-if				{ System.out.println("Token IF"); }
-else			{ System.out.println("Token ELSE"); }
-return			{ System.out.println("Token RETURN"); }
-length			{ System.out.println("Token LENGTH"); }
-true			{ System.out.println("Token TRUE"); }
-false			{ System.out.println("Token FALSE"); }
-this			{ System.out.println("Token THIS"); }
-new				{ System.out.println("Token NEW"); }
-System.out.println {System.out.println("Token SYSTEM OUT PRINT"); }
+boolean			{ System.out.println("Token keyword BOOLEAN"); }
+class			{ System.out.println("Token keyword CLASS"); }
+public			{ System.out.println("Token keyword PUBLIC"); }
+extends			{ System.out.println("Token keyword EXTENDS"); }
+static			{ System.out.println("Token keyword STATIC"); }
+void			{ System.out.println("Token keyword VOID"); }
+main			{ System.out.println("Token keyword MAIN"); }
+String			{ System.out.println("Token keyword STRING"); }
+int				{ System.out.println("Token keyword INT"); }
+while			{ System.out.println("Token keyword WHILE"); }
+if				{ System.out.println("Token keyword IF"); }
+else			{ System.out.println("Token keyword ELSE"); }
+return			{ System.out.println("Token keyword RETURN"); }
+length			{ System.out.println("Token keyword LENGTH"); }
+true			{ System.out.println("Token keyword TRUE"); }
+false			{ System.out.println("Token keyword FALSE"); }
+this			{ System.out.println("Token keyword THIS"); }
+new				{ System.out.println("Token keyword NEW"); }
+System.out.println {System.out.println("Token keyword SYSTEM OUT PRINT"); }
 //operadores
-"&&"            { System.out.println("Token &&"); }
-"<"				{ System.out.println("Token <"); }
-"*"             { System.out.println("Token *"); }
-"+"             { System.out.println("Token +"); }
-"-"             { System.out.println("Token -"); }
-"=="            { System.out.println("Token =="); }
-"!="			{ System.out.println("Token !="); }
-"!"				{ System.out.println("Token !"); }
+"&&"            { System.out.println("Token operator &&"); }
+"<"				{ System.out.println("Token operator <"); }
+"*"             { System.out.println("Token operator *"); }
+"+"             { System.out.println("Token operator +"); }
+"-"             { System.out.println("Token operator -"); }
+"=="            { System.out.println("Token operator =="); }
+"!="			{ System.out.println("Token operator !="); }
+"!"				{ System.out.println("Token operator !"); }
 //delimitadores e pontuacao
 ";"				{ System.out.println("Token ;"); }
 "."				{ System.out.println("Token ."); }
@@ -81,8 +81,8 @@ System.out.println {System.out.println("Token SYSTEM OUT PRINT"); }
 "}"				{ System.out.println("Token }"); }
 "["				{ System.out.println("Token ["); }
 "]"				{ System.out.println("Token ]"); }
-{identifier}    { qtdeID++; System.out.println("Token ID ("+yytext()+")"); }
-{intLit}       	{ System.out.println("Token INT ("+yytext()+")"); }
+{identifier}    { qtdeID++; System.out.println("Token ID "+yytext()); }
+{intLit}       	{ System.out.println("Token INT "+yytext()); }
 {comm}			{ }
 {whitespace}    { }
-. { throw new RuntimeException("Caractere ilegal! '" + yytext() + "' na linha: " + yyline + ", coluna: " + yycolumn); }
+. { throw new RuntimeException("Caractere ilegal! '" + yytext() + "' na linha: " + (yyline+1) + ", coluna: " + yycolumn); }
