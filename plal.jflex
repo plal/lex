@@ -33,7 +33,7 @@ alphaNum        = {letter}|{num}
 identifier      = ({letter}|{under})({alphaNum}|{under})*
 whitespace      = [ \n\t\r\f]
 multiLineComm	= "/*" [^*] ~"*/" | "/*" "*"+ "*/"
-lineComm		= "//" [^*] ~\n 
+lineComm		= "//" (.)* ~\n 
 comm			= {multiLineComm}|{lineComm}
 
 
@@ -83,6 +83,6 @@ System.out.println {System.out.println("Token keyword SYSTEM OUT PRINT"); }
 "]"				{ System.out.println("Token ]"); }
 {identifier}    { qtdeID++; System.out.println("Token ID "+yytext()); }
 {intLit}       	{ System.out.println("Token INT "+yytext()); }
-{comm}			{ }
+{comm}			{ System.out.println("Token COMMENT"); }
 {whitespace}    { }
 . { throw new RuntimeException("Caractere ilegal! '" + yytext() + "' na linha: " + (yyline+1) + ", coluna: " + yycolumn); }
