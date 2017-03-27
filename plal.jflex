@@ -61,6 +61,7 @@ false			{ System.out.println("Token keyword FALSE"); }
 this			{ System.out.println("Token keyword THIS"); }
 new				{ System.out.println("Token keyword NEW"); }
 System.out.println {System.out.println("Token keyword SYSTEM OUT PRINT"); }
+
 //operadores
 "&&"            { System.out.println("Token operator &&"); }
 "<"				{ System.out.println("Token operator <"); }
@@ -70,6 +71,7 @@ System.out.println {System.out.println("Token keyword SYSTEM OUT PRINT"); }
 "=="            { System.out.println("Token operator =="); }
 "!="			{ System.out.println("Token operator !="); }
 "!"				{ System.out.println("Token operator !"); }
+
 //delimitadores e pontuacao
 ";"				{ System.out.println("Token ;"); }
 "."				{ System.out.println("Token ."); }
@@ -81,8 +83,9 @@ System.out.println {System.out.println("Token keyword SYSTEM OUT PRINT"); }
 "}"				{ System.out.println("Token }"); }
 "["				{ System.out.println("Token ["); }
 "]"				{ System.out.println("Token ]"); }
+
 {identifier}    { qtdeID++; System.out.println("Token ID "+yytext()); }
 {intLit}       	{ System.out.println("Token INT "+yytext()); }
 {comm}			{ System.out.println("Token COMMENT"); }
 {whitespace}    { }
-. { throw new RuntimeException("Caractere ilegal! '" + yytext() + "' na linha: " + (yyline+1) + ", coluna: " + yycolumn); }
+. { throw new RuntimeException("Caractere ilegal! '" + yytext() + "' na linha: " + yyline + ", coluna: " + yycolumn); }
